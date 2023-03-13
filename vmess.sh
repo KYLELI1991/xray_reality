@@ -39,8 +39,11 @@ sed -i "s/握手网站/$tlsdomain/g" config.json
 sed -i "s/自定义端口/$custom_port/g" config.json
 sed -i "s/私钥/$private_key/g" config.json
 
-nohup ./xray run >/dev/null 2>&1 &
-
+# nohup ./xray run >/dev/null 2>&1 &
+# use systemctl service
+wget --no-check-certificate -O /etc/systemd/system/xray_reality.service https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/xray_reality.service
+systemctl enable xray_reality.service
+systemctl start xray_reality.service
 clash_proxy=$(echo -e "{name: vmess_reality, type: vmess, server: $v4, port: $custom_port, uuid: $uuid, alterId: 0, cipher: none, network: tcp, tls: true, udp: true, client-fingerprint: chrome, servername: $tlsdomain, reality-opts: {public-key: $public_key}}")
 echo $reality_keys $clash_proxy >clash_proxy.txt
 echo -e "已完成安装xray vmess reality clash meta 代理设置 \n $clash_proxy"
