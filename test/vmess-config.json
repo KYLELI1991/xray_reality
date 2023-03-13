@@ -1,0 +1,42 @@
+{
+    "log": {
+    "loglevel": "info",
+    "access": "安装路径/access.log",
+    "error": "安装路径/error.log"
+  },
+    "inbounds": [
+        {
+            "port": 自定义端口,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "uuid"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "reality",
+                "realitySettings": {
+                    "show": false,
+                    "dest": "握手网站:443", 
+                    "serverNames": [
+                        "握手网站"
+                    ],
+                    "privateKey": "私钥", 
+                    "shortIds": [ 
+                        "" 
+                    ]
+                }
+            }
+        }
+
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+        
+    ]
+}
