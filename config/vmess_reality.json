@@ -1,7 +1,9 @@
 {
     "log": {
-        "loglevel": "info"
-    },
+        "loglevel": "info",
+        "access": "/root/xray_reality/log/access.log",
+        "error": "/root/xray_reality/log/error.log"
+      },
     "inbounds": [
         {
             "port": 自定义端口,
