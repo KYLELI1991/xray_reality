@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt install unzip -y
+apt install unzip -y
 mkdir xray_reality && cd xray_reality
 version_tag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/XTLS/Xray-core/releases" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
 wget -N --no-check-certificate https://github.com/XTLS/Xray-core/releases/download/$version_tag/Xray-linux-64.zip
