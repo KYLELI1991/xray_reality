@@ -1,8 +1,8 @@
 {
     "log": {
         "loglevel": "info",
-        "access": "/root/xray_reality/log/access.log",
-        "error": "/root/xray_reality/log/error.log"
+        "access": "/root/xray_reality/access.log",
+        "error": "/root/xray_reality/error.log"
       },
     "inbounds": [
         {
