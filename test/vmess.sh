@@ -3,7 +3,7 @@ sudo apt install unzip -y
 mkdir xray_reality && cd xray_reality
 version_tag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/XTLS/Xray-core/releases" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
 wget -N --no-check-certificate https://github.com/XTLS/Xray-core/releases/download/$version_tag/Xray-linux-64.zip
-unzip Xray-linux-64.zip
+unzip -o Xray-linux-64.zip
 rm Xray-linux-64.zip
 chmod +x xray
 
@@ -41,8 +41,8 @@ sed -i "s/uuid/$uuid/g" config.json
 sed -i "s/握手网站/$tlsdomain/g" config.json
 sed -i "s/自定义端口/$custom_port/g" config.json
 sed -i "s/私钥/$private_key/g" config.json
-sed -i "s/安装路径/$cwd/g" config.json
-sed -i "s/安装路径/$cwd/g" /etc/systemd/system/xray_reality.service
+sed -i "s#安装路径#$cwd#g" config.json
+sed -i "s#安装路径#$cwd#g" /etc/systemd/system/xray_reality.service
 
 # nohup ./xray run >/dev/null 2>&1 &
 # use systemctl service
