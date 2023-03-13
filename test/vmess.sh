@@ -41,8 +41,8 @@ sed -i "s/uuid/$uuid/g" config.json
 sed -i "s/握手网站/$tlsdomain/g" config.json
 sed -i "s/自定义端口/$custom_port/g" config.json
 sed -i "s/私钥/$private_key/g" config.json
-sed -i "s/安装路径/$private_key/g" config.json
-sed -i "s/安装路径/$private_key/g" /etc/systemd/system/xray_reality.service
+sed -i "s/安装路径/$cwd/g" config.json
+sed -i "s/安装路径/$cwd/g" /etc/systemd/system/xray_reality.service
 
 # nohup ./xray run >/dev/null 2>&1 &
 # use systemctl service
