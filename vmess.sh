@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt install unzip -y
+apt install unzip -y
 mkdir xray_reality && cd xray_reality
 version_tag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/XTLS/Xray-core/releases" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
 wget -N --no-check-certificate https://github.com/XTLS/Xray-core/releases/download/$version_tag/Xray-linux-64.zip
@@ -44,7 +44,7 @@ sed -i "s/私钥/$private_key/g" config.json
 # use systemctl service
 wget --no-check-certificate -O /etc/systemd/system/xray_reality.service https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/xray_reality.service
 systemctl enable xray_reality.service
-systemctl start xray_reality.service
+systemctl restart xray_reality.service
 clash_proxy=$(echo -e "{name: vmess_reality, type: vmess, server: $v4, port: $custom_port, uuid: $uuid, alterId: 0, cipher: none, network: tcp, tls: true, udp: true, client-fingerprint: chrome, servername: $tlsdomain, reality-opts: {public-key: $public_key}}")
 echo $reality_keys $clash_proxy >clash_proxy.txt
 echo -e "已完成安装xray vmess reality clash meta 代理设置 \n $clash_proxy"
