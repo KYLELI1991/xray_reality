@@ -18,8 +18,8 @@ read  tlsdomain
 echo -n "自定义端口:"                   
 read  custom_port
 # get config
-wget --no-check-certificate -O config.json https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/config/vmess_reality.json
-wget --no-check-certificate -O /etc/systemd/system/xray_reality.service https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/xray_reality.service
+wget --no-check-certificate -O config.json https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/test/vmess-config.json
+wget --no-check-certificate -O /etc/systemd/system/xray_reality.service https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/test/xray_reality.service
 
 # get ip
 wgcfv6status=$(curl -s6m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2) 
@@ -52,3 +52,6 @@ systemctl start xray_reality.service
 clash_proxy=$(echo -e "{name: vmess_reality, type: vmess, server: $v4, port: $custom_port, uuid: $uuid, alterId: 0, cipher: none, network: tcp, tls: true, udp: true, client-fingerprint: chrome, servername: $tlsdomain, reality-opts: {public-key: $public_key}}")
 echo $reality_keys $clash_proxy >clash_proxy.txt
 echo -e "已完成安装xray vmess reality clash meta 代理设置 \n $clash_proxy"
+
+
+
