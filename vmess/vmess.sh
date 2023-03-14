@@ -20,7 +20,7 @@ echo -n "自定义端口:"
 read  custom_port
 # get config
 wget --no-check-certificate -O vmess_config.json https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vmess/vmess-config.json
-wget --no-check-certificate -O /etc/systemd/system/xray_vmess_reality.service https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vmess/xray_reality.service
+wget --no-check-certificate -O /etc/systemd/system/xray_vmess_reality.service https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vmess/xray_vmess_reality.service
 
 # get ip
 wgcfv6status=$(curl -s6m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2) 
