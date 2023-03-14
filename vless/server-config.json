@@ -37,7 +37,7 @@
   "inbounds": [
     {
       "listen": "0.0.0.0",
-      "port": 11443,
+      "port": 自定义端口,
       "protocol": "vless",
       "settings": {
         "clients": [
