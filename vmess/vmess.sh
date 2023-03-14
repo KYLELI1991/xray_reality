@@ -51,7 +51,7 @@ systemctl enable xray_vmess_reality.service
 systemctl restart xray_vmess_reality.service
 
 clash_proxy=$(echo -e "{name: vmess_reality, type: vmess, server: $v4, port: $custom_port, uuid: $uuid, alterId: 0, cipher: none, network: tcp, tls: true, udp: true, client-fingerprint: chrome, servername: $tlsdomain, reality-opts: {public-key: $public_key}}")
-echo $reality_keys $clash_proxy >clash_proxy.txt
+echo $reality_keys $clash_proxy >>clash_proxy.txt
 echo -e "已完成安装xray vmess reality clash meta 代理设置 \n $clash_proxy"
 
 
