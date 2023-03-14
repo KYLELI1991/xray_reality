@@ -1,5 +1,7 @@
 { 
-  "log": { "loglevel": "info"
+  "log": { "loglevel": "info",
+    "access": "安装路径/access_vless.log",
+    "error": "安装路径/error_vless.log"
          },
   "api": {
     "tag": "api",
