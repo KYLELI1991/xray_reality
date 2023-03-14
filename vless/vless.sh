@@ -19,7 +19,7 @@ read  tlsdomain
 echo -n "自定义端口:"                   
 read  custom_port
 # get config
-wget --no-check-certificate -O config.json https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vless/server-config.json
+wget --no-check-certificate -O vless_config.json https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vless/server-config.json
 wget --no-check-certificate -O /etc/systemd/system/xray_vless_reality.service https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vless/xray_vless_reality.service
 
 # get ip
@@ -37,11 +37,10 @@ else
         v4=$(curl -s4m8 api64.ipify.org -k)
 fi
 
-sed -i "s/uuid/$uuid/g" config.json
-sed -i "s/handshake_web/$tlsdomain/g" config.json
-sed -i "s/自定义端口/$custom_port/g" config.json
-sed -i "s/private_key/$private_key/g" config.json
-sed -i "s#安装路径#$cwd#g" config.json
+sed -i "s/uuid/$uuid/g" vless_config.json
+sed -i "s/handshake_web/$tlsdomain/g" vless_config.json
+sed -i "s/自定义端口/$custom_port/g" vless_config.json
+sed -i "s/private_key/$private_key/g" vless_config.json
 sed -i "s#安装路径#$cwd#g" /etc/systemd/system/xray_vless_reality.service
 
 # nohup ./xray run >/dev/null 2>&1 &
