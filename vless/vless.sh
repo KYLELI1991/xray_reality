@@ -19,7 +19,7 @@ read  tlsdomain
 echo -n "自定义端口:"                   
 read  custom_port
 # get config
-wget --no-check-certificate -O vless_config.json https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vless/server-config.json
+wget --no-check-certificate -O vless_config.json https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vless/vless-config.json
 wget --no-check-certificate -O /etc/systemd/system/xray_vless_reality.service https://raw.githubusercontent.com/KYLELI1991/xray_reality/main/vless/xray_vless_reality.service
 
 # get ip
