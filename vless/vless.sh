@@ -41,6 +41,7 @@ sed -i "s/uuid/$uuid/g" vless_config.json
 sed -i "s/handshake_web/$tlsdomain/g" vless_config.json
 sed -i "s/自定义端口/$custom_port/g" vless_config.json
 sed -i "s/private_key/$private_key/g" vless_config.json
+sed -i "s#安装路径#$cwd#g" vless_config.json
 sed -i "s#安装路径#$cwd#g" /etc/systemd/system/xray_vless_reality.service
 
 # nohup ./xray run >/dev/null 2>&1 &
