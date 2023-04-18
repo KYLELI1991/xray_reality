@@ -42,7 +42,7 @@ sed -i "s/私钥/$private_key/g" vmess_config.json
 sed -i "s#安装路径#$cwd#g" vmess_config.json
 
 # nohup 
-nohup ./xray run >/dev/null 2>&1 &
+nohup ./xray run -config vmess_config.json >/dev/null 2>&1 &
 # use systemctl service need root user
 # systemctl enable xray_vmess_reality.service
 # systemctl restart xray_vmess_reality.service
